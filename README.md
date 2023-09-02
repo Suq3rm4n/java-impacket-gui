@@ -27,8 +27,8 @@
 
 完成完整的交互式shell，除了zerologon没测试都测试正常
 
-![image-20230902223647578](D:\Record\TyporaImages\image-20230902223647578.png)
+![image-20230902223647578](https://github.com/Suq3rm4n/images/blob/main/image-20230902223647578.png)
 
-![image-20230902223851344](D:\Record\TyporaImages\image-20230902223851344.png)
+![image-20230902223851344](https://github.com/Suq3rm4n/images/blob/main/image-20230902223851344.png)
 
-![image-20230902223910448](D:\Record\TyporaImages\image-20230902223910448.png)
+![image-20230902223910448](https://github.com/Suq3rm4n/images/blob/main/image-20230902223910448.png)
