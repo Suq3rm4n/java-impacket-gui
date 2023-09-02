@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="744.0" prefWidth="1302.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ImpacketexecController">
+   <children>
+      <TabPane prefHeight="741.0" prefWidth="1302.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="密码传递">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="708.0" prefWidth="1302.0">
+                     <children>
+                        <Text layoutX="75.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
+                        <TextField fx:id="textField_password_IP" layoutX="114.0" layoutY="61.0" />
+                        <Text layoutX="405.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                        <TextField fx:id="textField_pasword_username" layoutX="509.0" layoutY="61.0" prefHeight="30.0" prefWidth="246.0" />
+                        <Text layoutX="47.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                        <TextField fx:id="textField_Password" layoutX="126.0" layoutY="120.0" prefHeight="30.0" prefWidth="624.0" />
+                        <Text layoutX="29.0" layoutY="662.0" strokeType="OUTSIDE" strokeWidth="0.0" text="command" />
+                        <TextField fx:id="textField_password_command" layoutX="114.0" layoutY="641.0" prefHeight="30.0" prefWidth="786.0" />
+                        <Text layoutX="820.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="编码" />
+                        <ChoiceBox fx:id="choiceBox_coder" layoutX="873.0" layoutY="61.0" prefWidth="150.0" />
+                        <Button fx:id="Button_PassAtt" layoutX="928.0" layoutY="641.0" mnemonicParsing="false" onMouseClicked="#PassAtt_clicked" prefHeight="30.0" prefWidth="73.0" text="Send" />
+                        <TextArea fx:id="textArea_Passwordpassing" layoutX="29.0" layoutY="166.0" prefHeight="451.0" prefWidth="1245.0" />
+                        <Button fx:id="Button_PassConnect" layoutX="1041.0" layoutY="641.0" mnemonicParsing="false" onMouseClicked="#PassAtt_clickedConnect" text="Connect" />
+                        <Button fx:id="Button_PassDisconnect" layoutX="1165.0" layoutY="641.0" mnemonicParsing="false" onMouseClicked="#PassAtt_clickedDisconnect" text="Disconect" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Hash传递">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="878.0" prefWidth="1302.0">
+                     <children>
+                        <Text layoutX="75.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IP" />
+                        <TextField fx:id="textField_Hash_IP" layoutX="114.0" layoutY="61.0" />
+                        <Text layoutX="405.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+                        <TextField fx:id="textField_Hash_username" layoutX="509.0" layoutY="61.0" prefHeight="30.0" prefWidth="246.0" />
+                        <Text layoutX="63.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hash" />
+                        <TextField fx:id="textField_Hash" layoutX="114.0" layoutY="123.0" prefHeight="30.0" prefWidth="950.0" />
+                        <Text layoutX="27.0" layoutY="660.0" strokeType="OUTSIDE" strokeWidth="0.0" text="command" />
+                        <TextField fx:id="textField_Hash_command" layoutX="114.0" layoutY="639.0" prefHeight="30.0" prefWidth="753.0" />
+                        <Text layoutX="833.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="编码" />
+                        <ChoiceBox fx:id="choiceBox2_coder" layoutX="889.0" layoutY="60.0" prefWidth="150.0" />
+                        <Button fx:id="Button_HashAtt" layoutX="894.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#HashAtt_clicked" prefHeight="30.0" prefWidth="70.0" text="Send" />
+                        <TextArea fx:id="textArea_Hashpassing" layoutX="29.0" layoutY="180.0" prefHeight="442.0" prefWidth="1245.0" />
+                        <Button fx:id="Button_HashConnect" layoutX="1016.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#HashAtt_clickedConnect" text="Connect" />
+                        <Button fx:id="Button_HashDisconnect" layoutX="1144.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#HashAtt_clickedDisConnect" text="Disconnect" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
